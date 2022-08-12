@@ -5,19 +5,15 @@ package com.bridgelabz;
         int data;
         Node left;
         Node right;
-
     }
     // All methods are nonstatic in the class so create object for this class in main method
     public class BinarySearchTree {
         //insert method is used here to insert root and value
         public Node insert(Node root, int val) {
-
             if (root == null) {
                 return createNewNode(val);
-            }
-            if (val < root.data) {
+            }if (val < root.data) {
                 root.left = insert(root.left, val);
-
             } else if (val > root.data) {
                 root.right = insert(root.right, val);
             }
@@ -37,8 +33,18 @@ package com.bridgelabz;
             }
             print(root.left);
             System.out.print(root.data +"->");
-            //null right side
             print(root.right);
+        }
+        //Size method For checking all nodes are added or Not
+        public int size(Node node) {
+            /*
+             *  if condition is true then node is empty if condition is false then
+             * else condition is worked
+             */
+            if (node == null)
+                return 0;
+            else
+                return(size(node.left) + 1 + size(node.right));
         }
     }
 
